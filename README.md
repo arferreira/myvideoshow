@@ -1,3 +1,6 @@
+# Acesso (Heroku):
+* Para acessar a app em produção utilize o seguinte link https://myvideoshow.herokuapp.com/
+
 # CAOS:
 
 - App onde as pessoas podem carregar vídeos através de uma autenticação
