@@ -9,5 +9,9 @@ class Video < ApplicationRecord
   def set_status
     self.status = :active
   end
+
+  def count_viewed
+    self.count
+  end
   
 end

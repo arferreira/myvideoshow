@@ -1,0 +1,54 @@
+<div class="row videos">
+  <div class="col s8 offset-s2">
+    <p class="title">Informações</p>
+    <p>Preencha o formulário com os dados de seu vídeo, ao pressionar [tab], nós iremos salvar os dados :)</p>
+  </div>
+
+  <div class="video">
+    <div class="row cards">
+      <div class="col s8 offset-s2">
+        <div class="card horizontal">
+          <div class="card-content col s12">
+            <%= form_for @video, url: {action: "update"}, html: {class: "col s12 update_video"} do |f| %>
+              <div class="row">
+                <div class="row">
+                  <div class="col s12 l12 input-field">
+                    <%= f.text_field :name, 'data-length': "20" %>
+                    <label for="title" class="<%= (@video.name)? 'active' : '' %>">Título do seu vídeo</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <%= f.text_field :description, 'data-length': "150" %>
+                    <label for="title" class="<%= (@video.description)? 'active' : '' %>">Descrição do vídeo</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <%= f.text_field :url %>
+                    <label for="title" class="<%= (@video.url)? 'active' : '' %>">Url do vídeo</label>
+                  </div>    
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row btn-actions">
+    <div class="col s12 center">
+    <div class="row">
+      <div class="col s6 m3 offset-m3 l2 offset-l2">
+        <%= form_for @video, method: 'delete', html: {class: 'remove_video'} do |f| %>
+          <button type='submit' class="waves-effect waves-light btn red">Remover</button>
+        <% end %>
+      </div>
+      <div class="col s6">
+        <a href="/videos" class="waves-effect waves-light btn">Acervo</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

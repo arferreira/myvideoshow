@@ -5,7 +5,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :url
       t.references :user, foreign_key: true
-      t.integer :status
+      t.integer :status, :default =>  :inactive
 
       t.timestamps
     end
