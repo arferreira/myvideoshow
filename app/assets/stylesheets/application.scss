@@ -1,2 +1,42 @@
 @import "materialize";
 @import "material_icons";
+@import "shared/navbar";
+@import "shared/footer";
+
+.btn {
+	background: #6c5ce7;
+}
+.btn:hover,
+.btn-large:hover {
+	background-color: #6c5ce7;
+}
+a {
+	color: #6c5ce7;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+	border-bottom: 1px solid #6c5ce7;
+	box-shadow: 0 1px 0 0 #6c5ce7;
+}
+
+h2 {
+	color: #636e72;
+	font-size: 28px;
+}
+
+h3 {
+	color: #636e72;
+	font-size: 24px;
+}

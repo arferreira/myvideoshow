@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myvideoshow</title>
+    <title>myvideoshow - Transforme seus vídeos em brincadeira ;)</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'shared/navbar' %>
+    </header>
+    <main>
+      <div class="container">
+        <%= yield %>  
+      </div>
+    </main>
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>
