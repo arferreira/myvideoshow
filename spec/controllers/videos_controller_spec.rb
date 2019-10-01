@@ -45,16 +45,16 @@ RSpec.describe VideosController, type: :controller do
       post :create, params: {video: @video_attributes}
     end
 
-    it "Redirect to new video" do
+    it "Redirect to same video" do
       expect(response).to have_http_status(302)
       expect(response).to redirect_to("/videos/#{Video.last.id}")
     end
 
     it "Create video with right attributes" do
       expect(Video.last.user).to eql(@current_user)
-      expect(Video.last.name).to eql(@video_attributes[:name])
-      expect(Video.last.description).to eql(@video_attributes[:description])
-      expect(Video.last.url).to eql(@video_attributes[:url])
+      expect(Video.last.name).to eql('Novo vídeo')
+      expect(Video.last.description).to eql('Descreva seu vídeo......')
+      expect(Video.last.url).to eql('https://urldoseuvide.com/seuvideo.m3u8')
       expect(Video.last.status).to eql('active')
     end
   end
@@ -91,10 +91,6 @@ RSpec.describe VideosController, type: :controller do
       before(:each) do
         video = create(:video, user: @current_user)
         put :update, params: {id: video.id, video: @new_video_attributes}
-      end
-
-      it "returns http success" do
-        expect(response).to have_http_status(:success)
       end
 
       it "Video have the new attributes" do

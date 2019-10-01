@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_133233) do
     t.text "description"
     t.string "url"
     t.bigint "user_id"
-    t.boolean "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_videos_on_user_id"
