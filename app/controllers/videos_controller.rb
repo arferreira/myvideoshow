@@ -18,7 +18,10 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
+    @video = Video.new(user: current_user, name: 'Novo vídeo',
+                       description: 'Descreva seu vídeo......',
+                       url: 'https://urldoseuvide.com/seuvideo.m3u8',
+                       status: :active)
     respond_to do |format|
       if @video.save
         format.html { redirect_to "/videos/#{@video.id}" }
