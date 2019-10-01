@@ -38,3 +38,21 @@ Um app para que as pessoas possam realizar uploads de vídeos, onde deverão ser
 
 
 # Criação dos Wireframes:
+
+
+# Definição do Stack do Projeto
+
+
+* Repositório
+-  Github
+
+* Desenvolvimento
+-  Ruby on Rails
+    * Bibliotecas
+    -  Materialize
+    -  Devise
+    -  Rspec Rails
+    -  Factory Girl Rails
+    -  Ffaker
+    -  PostgresSQL
+
