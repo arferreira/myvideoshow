@@ -12,9 +12,11 @@ class VideosController < ApplicationController
   end
 
   def create
+    skin_url = 'https://i.pinimg.com/originals/fe/f5/39/fef539c5068b554ed863522e73d9366b.jpg'
     @video = Video.new(user: current_user, name: 'Novo vídeo',
                        description: 'Descreva seu vídeo......',
                        url: 'https://urldoseuvide.com/seuvideo.m3u8',
+                       skin: skin_url,
                        status: :active)
     respond_to do |format|
       if @video.save
@@ -49,7 +51,7 @@ class VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:name, :description, :url, :status).merge(user: current_user)
+    params.require(:video).permit(:name, :description, :url, :skin, :status).merge(user: current_user)
   end
 
   def is_owner?
