@@ -41,7 +41,7 @@ gem 'material_icons'
 
 gem 'jquery-rails'
 
-gem 'hls-rails'
+gem 'videojs-ng'
 
 
 # Reduces boot times through caching; required in config/boot.rb

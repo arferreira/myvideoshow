@@ -9,6 +9,15 @@
       <div class="col s8 offset-s2">
         <div class="card horizontal">
           <div class="card-content col s12">
+            <div class="row">
+                <div class="col s6" style="width: 100%; height:300px; overflow: hidden; margin-bottom: 20px;">
+                    <video id=show-video class="video-js vjs-default-skin" controls preload='auto' muted>
+                        <source
+                            src="<%= @video.url %>"
+                            type="application/x-mpegURL">
+                        </video>
+                </div>
+            </div>
             <%= form_for @video, url: {action: "update"}, html: {class: "col s12 update_video"} do |f| %>
               <div class="row">
                 <div class="row">
@@ -52,3 +61,14 @@
     </div>
   </div>
 </div>
+
+<script>
+    var media = videojs("show-video");
+    const playPromise = media.play();
+    if (playPromise !== null){
+        playPromise.catch(() => { 
+            media.play(); 
+            media.muted = false;
+        })
+    }
+</script>

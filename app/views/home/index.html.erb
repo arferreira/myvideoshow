@@ -4,8 +4,38 @@
         Transforme seus vídeos pessoais em brincadeira <i class="material-icons home-icon">favorite</i>
     </h3>
     <div class="row center">
+      <% if not user_signed_in? %>
         <a href="/users/sign_up" class="btn waves-effect waves-light center-align">
-            Começar agora
+            Enviar vídeo
         </a>
+       <% end %>
+    </div>
+
+    <div class="row center">
+    <div class="row cards">
+        <div class="col s12">
+            <% @videos.each do | video | %>
+                <div class="card">
+                    <div class="col s12">
+                            <span class="new badge purple">Visualizações</span>
+                    </div>
+                    <div class="col s6 video-player" style="width: 100%; height:300px; overflow: hidden; margin-bottom: 20px; margin-top: 20px;">
+                    <%= link_to "/assistir/#{video.id}" do %>
+                        <img src="https://i.pinimg.com/originals/fe/f5/39/fef539c5068b554ed863522e73d9366b.jpg" class="responsive-img" alt="">
+                    <% end %>
+                    </div>
+                    <div class="row">
+                        <div class="col s3">
+                            <p class="purple-text text-darken-2"><%= (video.created_at)? video.created_at.strftime("%d/%m/%Y") : '' %></p>
+                        </div>
+                        
+                        <div class="col s6">
+                            <p class="purple-text text-darken-2"><%= video.name %></p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
     </div>
 </div>

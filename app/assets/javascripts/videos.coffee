@@ -23,4 +23,3 @@ $(document).on 'turbolinks:load', ->
         error: (jqXHR, textStatus, errorThrown) ->
           Materialize.toast('Problema na remoção do vídeo', 4000, 'red')
     return false
-
