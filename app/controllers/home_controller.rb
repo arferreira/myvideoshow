@@ -7,7 +7,16 @@ class HomeController < ApplicationController
   end
 
   def video_view
+  end
 
+  def increment_views
+    video = Video.find(params[:video])
+    video.count_view += 1
+    if video.save
+      render json: { ok: true, count: video.count_view }
+    else
+      render json: { ok: false }
+    end
   end
 
 

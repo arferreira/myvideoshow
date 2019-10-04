@@ -1,4 +1,5 @@
 $(document).on 'turbolinks:load', ->
+  $('select').material_select()
   $('.update_video input').bind 'blur', ->
     $('.update_video').submit()
 
@@ -23,3 +24,8 @@ $(document).on 'turbolinks:load', ->
         error: (jqXHR, textStatus, errorThrown) ->
           Materialize.toast('Problema na remoção do vídeo', 4000, 'red')
     return false
+
+  if window.location.pathname.includes('/videos/')
+    player = videojs('show-video')
+    player.play()
+  return

@@ -10,26 +10,29 @@
         </a>
        <% end %>
     </div>
-
     <div class="row center">
     <div class="row cards">
         <div class="col s12">
             <% @videos.each do | video | %>
                 <div class="card">
                     <div class="col s12">
-                            <span class="new badge purple">Visualizações</span>
+                            <span class="white-text badge purple"><%= video.count_view %> visualizações</span>
                     </div>
-                    <div class="col s6 video-player" style="width: 100%; height:300px; overflow: hidden; margin-bottom: 20px; margin-top: 20px;">
-                    <%= link_to "/assistir/#{video.id}" do %>
+                    <div class="col s6" style="width: 100%; height:300px; overflow: hidden; margin-bottom: 20px; margin-top: 20px;">
+                    <%= link_to "/assistir/#{video.id}", data: { turbolinks: false } do %>
+                    <% if video.skin.present? %>
+                        <img src="<%= video.skin %>" class="responsive-img" alt="">
+                    <% else %>
                         <img src="https://i.pinimg.com/originals/fe/f5/39/fef539c5068b554ed863522e73d9366b.jpg" class="responsive-img" alt="">
+                    <% end %>
                     <% end %>
                     </div>
                     <div class="row">
                         <div class="col s3">
-                            <p class="purple-text text-darken-2"><%= (video.created_at)? video.created_at.strftime("%d/%m/%Y") : '' %></p>
+                            <p class="purple-text text-darken-2"><span>Publicado em: <%= (video.created_at)? video.created_at.strftime("%d/%m/%Y") : '' %></span></p>
                         </div>
                         
-                        <div class="col s6">
+                        <div class="col s9">
                             <p class="purple-text text-darken-2"><%= video.name %></p>
                         </div>
                     </div>

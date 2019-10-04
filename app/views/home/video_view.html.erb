@@ -3,41 +3,32 @@
     <h3 class="center-align subtitle2">
         <%= @video.description %>
     </h3>
-  
     <div class="row center">
     <div class="row cards">
         <div class="col s12">
-            
                 <div class="card">
+                    <div class="col s12">
+                            <span id="count_views" class="white-text badge purple"><%= @video.count_view %> visualizações</span>
+                            <input type="hidden" id="video" value="<%= @video.id %>" />
+                    </div>
                     <div class="col s6 video-player" style="width: 100%; height:300px; overflow: hidden; margin-bottom: 20px; margin-top: 20px;">
-                        <video id='show-video' class='video-js vjs-default-skin' controls preload='auto' poster='' muted="muted" >
+                        <video id='show-video' class='video-js' muted='muted' data-setup='{ "controls": true, "autoplay": true, "preload": "auto" }' >
                         <source
                             src="<%= @video.url %>"
                             type='application/x-mpegURL'>
                         </video>
                     </div>
                     <div class="row">
-                        <div class="col s12 m12 l12">
-                        <div class="col s3 m3 l4 visibility">
-                            <i class="material-icons visibility-icon">visibility</i>
-                            <span class="new badge purple">Visualizações</span>
+                        <div class="col s3">
+                            <p class="purple-text text-darken-2">Publicado em: <%= (@video.created_at)? @video.created_at.strftime("%d/%m/%Y") : '' %></p>
                         </div>
-                        <div class="col s3 m3 l4 visibility">
-                            <p class="blue-text text-darken-2"><%= (@video.created_at)? @video.created_at.strftime("%d/%m/%Y") : '' %></p>
-                        </div>
-                        <div class="col s6 m6 l4 visibility">
-                            <p><%= truncate(@video.user.name, length: 20, omission: '...') %></p>
-                        </div>
+                        <div class="col s9">
+                            <p class="purple-text text-darken-2"><%= @video.name %></p>
+                            <p class="purple-text text-darken-2"><%= truncate(@video.description, length: 20, omission: '...') %></p>
                         </div>
                     </div>
                 </div>
-            
         </div>
     </div>
     </div>
 </div>
-
-<script>
-var player = videojs('show-video');
-player.play();
-</script>

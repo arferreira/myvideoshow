@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/inicio', to: 'home#index'
 
   get '/assistir/:id', to: 'home#video_view'
+
+  post '/increment/views/', to: 'home#increment_views'
   
   resources :videos, except: [:new]
 

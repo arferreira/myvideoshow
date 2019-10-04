@@ -1,3 +1,25 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+updateView = ->
+  $.ajax
+    type: 'POST'
+    url: '/increment/views/'
+    dataType: 'json'
+    data: 'video': $('#video').val()
+    success: (response) ->
+      ok = response.ok
+      count = response.count
+      if ok == true
+        $('#count_views').text count + ' visualizações'
+      return
+    error: (xhr, status) ->
+      console.log 'erro ao salvar view'
+      return
+  return
+
+$(document).ready ->
+  if window.location.pathname.includes('/assistir')
+    player = videojs('show-video')
+    player.play()
+    player.on 'play', ->
+      updateView()
+      return
+  return

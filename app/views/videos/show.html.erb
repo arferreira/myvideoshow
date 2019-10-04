@@ -38,6 +38,18 @@
                     <label for="title" class="<%= (@video.url)? 'active' : '' %>">Url do vídeo</label>
                   </div>    
                 </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <%= f.text_field :skin %>
+                    <label for="title" class="<%= (@video.skin)? 'active' : '' %>">Capa do vídeo</label>
+                  </div>    
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field status">
+                    <%= f.select :status, Video.statuses.keys, {} %>
+                    <label for="title">Status do vídeo</label>
+                  </div>    
+                </div>
               </div>
             <% end %>
           </div>
@@ -61,14 +73,3 @@
     </div>
   </div>
 </div>
-
-<script>
-    var media = videojs("show-video");
-    const playPromise = media.play();
-    if (playPromise !== null){
-        playPromise.catch(() => { 
-            media.play(); 
-            media.muted = false;
-        })
-    }
-</script>
