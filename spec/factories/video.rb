@@ -3,6 +3,7 @@ FactoryBot.define do
       name         { FFaker::Lorem.word }
       description  { FFaker::Lorem.sentence }
       url          { FFaker::Internet.http_url }
+      skin         { FFaker::Internet.http_url }
       status       { :active }
       user
     end
