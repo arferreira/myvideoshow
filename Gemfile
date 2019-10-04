@@ -41,6 +41,8 @@ gem 'material_icons'
 
 gem 'jquery-rails'
 
+gem 'videojs-ng'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

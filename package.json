@@ -1,5 +1,8 @@
 {
   "name": "myvideoshow",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "video.js": "^7.6.5",
+    "videojs-contrib-hls": "^5.15.0"
+  }
 }

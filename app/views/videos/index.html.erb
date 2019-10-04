@@ -2,10 +2,11 @@
   <div class="col s8 offset-s2">
     <p class="title">Vídeos</p>
   </div>
-
   <div class="row cards">
     <div class="col s8 offset-s2">
-
+      <% if @videos.count <=0 %>
+        <h6 class="purple-text">Você ainda não cadastrou seus vídeos, cadastre agora mesmo clicando no link abaixo para adicionar!</h6>
+      <% end %>
       <% @videos.each do |v| %>
         <div class="card horizontal">
           <div class="card-content col s12">
@@ -26,7 +27,7 @@
               <div class="row status">
                 <div class="col s6 m6 l4 visibility">
                   <i class="material-icons visibility-icon">visibility</i>
-                  <span class="visibility-text">Visualizações </span>
+                  <span class="visibility-text"><%= v.count_view %> visualizações </span>
                 </div>
                 <div class="col s2 m2 offset-s4 l2 offset-l6">
                   <span class="new badge <%= (v.status == "inactive")? 'orange' : '' %>"> <%= (v.status == "inactive")? 'Inativo' : 'Ativo' %> </span>
@@ -36,14 +37,13 @@
             <div class="col l4 s12 m12 center enter">
               <div class="row">
                 <div class="col s12">
-                  <a class="waves-effect waves-light btn btn-small" href=<%= "/videos/#{v.id}" %>>Abrir</a>
+                  <%= link_to 'Abrir', "/videos/#{v.id}", data: { turbolinks: false }, class: 'waves-effect waves-light btn btn-small' %>
                 </div>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-
     </div>
   </div>
 

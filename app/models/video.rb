@@ -1,9 +1,13 @@
 class Video < ApplicationRecord
   
-  before_validation :set_status, on: :create
+  #before_validation :set_status, on: :create
   
   belongs_to :user
-  enum status: [:active, :inactive]
+  enum status: {
+    "active": 0,
+    "inactive": 1
+  }
+
   validates :name, :description, :user, :url, :status, presence: true
 
   def set_status

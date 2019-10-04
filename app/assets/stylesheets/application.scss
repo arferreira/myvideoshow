@@ -4,6 +4,7 @@
 @import "shared/footer";
 @import "shared/home";
 @import "videos";
+@import "video.js/dist/video-js.css";
 
 .btn {
 	background: #6c5ce7;
@@ -14,6 +15,18 @@
 }
 a {
 	color: #6c5ce7;
+}
+
+#show-video {
+	width: 100%;
+	height: 100%;
+}
+#video-player {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 input:not([type]):focus:not([readonly]),

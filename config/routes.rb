@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get 'home/index'
+  get '/inicio', to: 'home#index'
+
+  get '/assistir/:id', to: 'home#video_view'
+
+  post '/increment/views/', to: 'home#increment_views'
   
   resources :videos, except: [:new]
 
