@@ -8,7 +8,7 @@ class Video < ApplicationRecord
     "inactive": 1
   }
 
-  validates :name, :description, :user, :url, :status, presence: true
+  validates :name, :description, :user, :url, :skin,:status, presence: true
 
   def set_status
     self.status = :active
